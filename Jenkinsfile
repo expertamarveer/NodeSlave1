@@ -16,6 +16,7 @@ pipeline{
                                 //bat 'start http://127.0.0.1:8282'
                                 bat 'start http://127.0.0.1:8181'
                                 echo 'URL Invoked Successfully'
+                                response = httpRequest 'http://127.0.0.1:8282'
                                 echo "Status Code : "+response.status
                                 echo "URL Content : "+response.content 
                             }catch(Exception ex)
