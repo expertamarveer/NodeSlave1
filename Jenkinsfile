@@ -63,7 +63,7 @@ pipeline{
                                 echo  '***************** File Content  ****************'
                                 echo   data 
                                 echo  '****************** End Content ************'   
-                                response.end();
+                                
 
                                 if (fileExists('response.txt')) {
                                         //new File('response.txt').delete()
@@ -74,7 +74,8 @@ pipeline{
                                 } else {
                                         echo "response.txt file not found"
                                 }
-                                process.exit();
+                                //process.exit();
+                                //response.end();
                             }catch(Exception ex)
                             {
                                 echo("Exception: ${ex}")
