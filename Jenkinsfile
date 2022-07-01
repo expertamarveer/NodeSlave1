@@ -30,12 +30,13 @@ pipeline{
                                 bat 'start http://127.0.0.1:8181'
                                 echo 'URL Invoked Successfully'
                                 response = httpRequest 'http://127.0.0.1:8181'
-                                echo "Status Code : "+response.status  
-                                echo "URL Content : "+response.content 
+                                echo "Status   : "+response.status
+                                echo "Content  : "+response.content 
+                                echo "Port     : "+response
                             }catch(Exception ex)
                             {
                                 echo("invoke Exception : ${ex}")
-                                variable = ""
+                                
                             }//end try catch(Exception ex)
                       }  //end script 
                 }//end steps
@@ -62,7 +63,7 @@ pipeline{
                             }catch(Exception ex)
                             {
                                 echo("Exception: ${ex}")
-                                variable = ""
+                                 
                             }//end try catch(Exception ex)
                       }  //end script                
                   } //end step
@@ -92,7 +93,7 @@ pipeline{
                             }catch(Exception ex)
                             {
                                 echo("Exception: ${ex}")
-                                variable = ""
+                                
                             }//end try catch(Exception ex)
                       }  //end script                
                   } //end step
