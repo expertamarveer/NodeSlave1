@@ -1,9 +1,0 @@
-pipeline{
-    statges{
-        stage("Step1"){
-            steps{ 
-                echo 'Test'
-            }     
-        }
-    }
-}
