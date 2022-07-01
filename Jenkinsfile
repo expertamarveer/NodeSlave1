@@ -17,8 +17,8 @@ pipeline{
                                 bat 'start http://127.0.0.1:8181'
                                 echo 'URL Invoked Successfully'
                                 response = httpRequest 'http://127.0.0.1:8282'
-                                echo "Status Code : "+response.status
-                                echo "URL Content : "+response.content 
+                                echo "Status Code : "+response.status + ", URL Content : "+response.content 
+                                //echo "URL Content : "+response.content 
                             }catch(Exception ex)
                             {
                                 echo("invoke Exception : ${ex}")
@@ -27,8 +27,7 @@ pipeline{
                       }  //end script 
                 }//end steps
         } //end stage
-
-
+        
         stage('verifyApp'){
                   steps{
                       script {
