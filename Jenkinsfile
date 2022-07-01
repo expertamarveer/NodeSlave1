@@ -6,7 +6,7 @@ pipeline{
                 steps{
                     echo  'starting app'
                     bat   'node Server.js'
-                    //bat   'sleep 5000'
+                    bat   'sleep 5000'
                 }//end steps
         } //end stage
         stage("invoke"){
@@ -27,9 +27,8 @@ pipeline{
                 }//end steps
         } //end stage
 
-    }//end stages
 
-    stage('verifyApp'){
+        stage('verifyApp'){
                   steps{
                       script {
                            try{
@@ -55,6 +54,9 @@ pipeline{
                       }  //end script                
                   } //end step
         } //end stage
+    }//end stages
+
+    
 
 
 }//end pipeline  
