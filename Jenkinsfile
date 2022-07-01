@@ -4,9 +4,20 @@ pipeline{
     stages{
         stage("launch"){
                 steps{
-                    echo  'starting app'
-                    bat   'node Server.js'
-                    bat   'sleep 5000'
+                  
+                    script {
+                           try{
+                                    // echo  'starting app'
+                                    // bat   'node Server.js'
+                                    // bat   'sleep 5000'
+
+                            }catch(Exception ex)
+                            {
+                                echo("invoke Exception : ${ex}")
+                                variable = ""
+                            }//end try catch(Exception ex)
+                      }  //end script 
+
                 }//end steps
         } //end stage
         stage("invoke"){
