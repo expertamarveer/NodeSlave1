@@ -4,6 +4,7 @@ pipeline{
         stage("launch"){
                 steps{
                     echo 'starting app'
+                    bat 'node Server.js'
                 }//end steps
         } //end stage
         stage("invoke"){
@@ -23,6 +24,6 @@ pipeline{
                       }  //end script 
                 }//end steps
         } //end stage
-        
+
     }//end stages
 }//end pipeline  
