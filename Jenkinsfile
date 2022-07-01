@@ -1,17 +1,15 @@
-def response
-def MyServer
+ 
 
 pipeline{
+
     agent any
+
     stages{
-            stage{
+            stage("Launch"){
                 steps{
                     echo 'hello'
-                }
-            }
+                }//end steps
+            }//end stages Launch
     }//end stages
-
-    
-
 
 }//end pipeline  
