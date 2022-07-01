@@ -27,7 +27,7 @@ pipeline{
                       }  //end script 
                 }//end steps
         } //end stage
-        
+
         stage('verifyApp'){
                   steps{
                       script {
