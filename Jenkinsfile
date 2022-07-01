@@ -23,7 +23,6 @@ pipeline{
                       }  //end script 
                 }//end steps
         } //end stage
+        
     }//end stages
-
-
 }//end pipeline  
