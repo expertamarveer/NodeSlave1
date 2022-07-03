@@ -10,7 +10,7 @@ pipeline{
                     //echo 'hello'
                    script{
 
-                            const { exec } = require("child_process") 
+                            def   exec   = require("child_process") 
                             exec("node Server.js", (error, stdout, stderr) => {
                                 if (error) {
                                     console.log(`error: ${error.message}`);
@@ -22,7 +22,7 @@ pipeline{
                                 }
                                 console.log(`stdout: ${stdout}`); 
                             });     
-                            
+
                    }
                 }//end steps
             }//end stages Launch
