@@ -9,7 +9,7 @@ pipeline{
                 steps{
                     //echo 'hello'
                    script{
-                            const { exec } = require("child_process");
+                           bat' const { exec } = require("child_process");
                             exec("node Server.js", (error, stdout, stderr) => {
                                 if (error) {
                                     console.log(`error: ${error.message}`);
@@ -19,7 +19,7 @@ pipeline{
                                     console.log(`stderr: ${stderr}`);
                                     return;
                                 }
-                                console.log(`stdout: ${stdout}`);
+                                console.log(`stdout: ${stdout}`);'
                             });     
                    }
                 }//end steps
