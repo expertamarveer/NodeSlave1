@@ -1,4 +1,5 @@
 'use strict';
+
 require("appdynamics").profile({
   controllerHostName: 'siemensil.saas.appdynamics.com',
   controllerPort: 443,
@@ -22,4 +23,5 @@ app.get('/', (req, res) => {
 });
 app.listen(PORT, HOST);
 
-console.log(`Running on http://${HOST}:${PORT}`);
+//console.log('Running on http://${HOST}:${PORT}');
+console.log("Running on http://",HOST,":",PORT,"}");
