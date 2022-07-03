@@ -9,6 +9,7 @@ pipeline{
                 steps{
                     //echo 'hello'
                    script{
+                       
                            bat' const { exec } = require("child_process");
                             exec("node Server.js", (error, stdout, stderr) => {
                                 if (error) {
