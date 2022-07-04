@@ -23,7 +23,7 @@ pipeline{
                         stage("three"){
                             steps{
                                 echo "hello 3"
-                                bat 'stop Server.js'
+                                bat 'close Server.js'
                             }
                         } 
 
