@@ -13,7 +13,9 @@ pipeline{
                                
                                 echo "hello 1"
                                 bat 'node Server.js'
-                                 
+                                sleep(5) {
+                                    echo "hello 1"
+                                }  
                             }
                         }
                         stage("two"){
