@@ -47,7 +47,7 @@ pipeline{
                             steps{
                                 script {
                                     try{
-                                                 sleep 5
+                                                 sleep 4
                                                 if(response.status == 200 && response.content=="Hello World" )
                                                 {
                                                         echo "File Reading Success: " 
@@ -76,6 +76,7 @@ pipeline{
                                     steps{
                                         script {
                                             try{
+                                                    sleep 6
                                                     def data = readFile(file: 'response.txt')
                                                     echo  '***************** File Content  ****************'
                                                     echo   data 
