@@ -72,6 +72,36 @@ pipeline{
                             } //end step
                         } //end stage verifyApp
 
+                        stage('readAndDeleteApp'){
+                                    steps{
+                                        script {
+                                            try{
+                                                    def data = readFile(file: 'response.txt')
+                                                    echo  '***************** File Content  ****************'
+                                                    echo   data 
+                                                    echo  '****************** End Content ************'   
+
+                                                    if (fileExists('response.txt')) {
+                                                            bat 'del response.txt'
+                                                            //new File('response.txt').delete()
+                                                            //deleteFile('response.txt')
+                                                            //deleteFile file :'response.txt' 
+                                                            //deleteFile('test.zip')
+                                                            //Files.delete('response.txt');
+                                                            echo "file deleted"
+                                                    } else {
+                                                            echo "response.txt file not found"
+                                                    }
+
+                                                }catch(Exception ex)
+                                                {
+                                                    echo("File Deletion Exception: ${ex}")
+                                                    variable = ""
+                                                }//end try catch(Exception ex)
+                                        }  //end script                
+                                    } //end step
+                        } //end stage
+
                 }// end parallel
             }// end all stage
     } // end all stages
