@@ -6,6 +6,7 @@ pipeline{
     agent any
 
     stages{
+        stage("All Stages"){
         parallel {
             A:{
              stage("Launch"){
@@ -61,7 +62,8 @@ pipeline{
         }
 
         }//end stages parallel
-           
-    }//end stages
+        }//end all stage    
+          
+    }//end main stages
 
 }//end pipeline  
