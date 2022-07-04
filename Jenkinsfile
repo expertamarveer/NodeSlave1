@@ -7,20 +7,14 @@ pipeline{
 
     stages{
          stage("group1_stage"){
-             parallel{
-                 stage("one")
-                 {
-                        steps{
-                            echo "hello 1"
-                        }
-                 }// end stage  one
-                 stage("two")
-                 {
-                        steps{
-                            echo "hello 2"
-                        }
-                 }// end stage  two
-             }// end parallel
+             parallel(
+                    "StageA": {
+                        echo "This is branch a"
+                    },
+                    "StageB": {
+                        echo "This is branch b"
+                    }
+            )
          }// end group1_stag 
 
     } // end all stages
