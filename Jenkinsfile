@@ -90,9 +90,12 @@ pipeline{
                                                             //deleteFile('test.zip')
                                                             //Files.delete('response.txt');
                                                             echo "file deleted"
+                                                            
+                                
                                                     } else {
                                                             echo "response.txt file not found"
                                                     }
+                                                    response.end(); 
 
                                                 }catch(Exception ex)
                                                 {
