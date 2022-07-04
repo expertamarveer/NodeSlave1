@@ -7,12 +7,11 @@ pipeline{
 
     stages{
         parallel {
-
+            A:{
              stage("Launch"){
                 steps{
                     //echo 'hello'
                    script{
-
                             echo 'Launching '
                             bat 'node Server.js'
                             //const  { exec } = require("child_process") 
@@ -27,31 +26,41 @@ pipeline{
                             //     }
                             //     console.log(`stdout: ${stdout}`); 
                             // });     
-
                    }
                 }//end steps
             }//end stages Launch
-            stage('verify'){
+            },
+            B:{
+            stage('verifyApp'){
                   steps{
                       script {
                            try{
-                                    echo 'Before Calling URL '
-                                    //bat 'node Server.js'
-                                    bat 'start http://127.0.0.1:8282'
-                                    echo 'After Calling URL'
-                                    //def response = httpRequest 'http://127.0.0.1:8282'
-                                    response = httpRequest 'http://127.0.0.1:8282'
-                                    echo "Status   : "+response.status
-                                    echo "Content  : "+response.content 
+                                    if(response.status == 200 && response.content=="Hello World" )
+                                    {
+                                             echo "File Reading Success: " 
+                                             //node() {
+                                                    writeFile file: 'response.txt', text: 'string equal hello world'
+                                             // }    
+                                    }
+                                    else
+                                    {
+                                             echo "File Reading Fail: "   
+                                             //node() {
+                                                    writeFile file: 'response.txt', text: 'issue in app'
+                                             // }      
+                                    }
                             }catch(Exception ex)
                             {
-                                echo("Launch App Exception: ${ex}")
+                                writeFile file: 'response.txt', text: 'issue in app'
+                                echo("Reading Exception: ${ex}")
                                 variable = ""
                             }//end try catch(Exception ex)
                       }  //end script                
                   } //end step
         } //end stage
         }
+
+        }//end stages parallel
            
     }//end stages
 
