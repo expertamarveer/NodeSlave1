@@ -24,9 +24,7 @@ pipeline{
                                  script {
                                         try{
                                                     //bat 'node Server.js'
-                                                    sleep(5) {
-                                                         echo 'hello'
-                                                    }
+                                                    sleep 5
                                                     bat 'start http://127.0.0.1:8181'
                                                     echo 'hello'
                                                     //def response = httpRequest 'http://127.0.0.1:8282'
