@@ -12,6 +12,7 @@ pipeline{
                             steps{
                                 echo "hello 1"
                                 bat 'node Server.js'
+                                 
                             }
                         }
                         stage("two"){
@@ -19,7 +20,12 @@ pipeline{
                                 echo "hello 2"
                             }
                         } 
-
+                        stage("three"){
+                            steps{
+                                echo "hello 3"
+                                bat 'stop Server.js'
+                            }
+                        } 
 
                 }// end parallel
             }// end all stage
