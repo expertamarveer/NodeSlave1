@@ -24,13 +24,13 @@ pipeline{
                                  script {
                                         try{
                                                     //bat 'node Server.js'
-                                                    bat 'start http://127.0.0.1:8282'
+                                                    bat 'start http://127.0.0.1:8181'
                                                     echo 'hello'
                                                     //def response = httpRequest 'http://127.0.0.1:8282'
-                                                    response = httpRequest 'http://127.0.0.1:8282'
+                                                    response = httpRequest 'http://127.0.0.1:8181'
                                                     echo "Status   : "+response.status
                                                     echo "Content  : "+response.content 
-                                                    echo "Port     : "+response
+                                                    echo "Port     : "+response.pid
                                             }catch(Exception ex)
                                             {
                                                 echo("Launch App Exception: ${ex}")
@@ -40,12 +40,7 @@ pipeline{
                                 //--------------end-----------
                             }
                         } 
-                        stage("three"){
-                            steps{
-                                echo "hello 3"
-                                bat 'process.exit(0)'
-                            }
-                        } 
+                         
 
                 }// end parallel
             }// end all stage
