@@ -23,7 +23,7 @@ pipeline{
                         stage("three"){
                             steps{
                                 echo "hello 3"
-                                process.exit();
+                                bat 'process.exit(0)'
                             }
                         } 
 
