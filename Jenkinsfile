@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage("All Stages"){
         parallel {
-            A:{
+            
              stage("Launch"){
                 steps{
                     //echo 'hello'
@@ -30,8 +30,7 @@ pipeline{
                    }
                 }//end steps
             }//end stages Launch
-            },
-            B:{
+            
             stage('verifyApp'){
                   steps{
                       script {
@@ -59,11 +58,11 @@ pipeline{
                       }  //end script                
                   } //end step
         } //end stage
-        }
+        
 
         }//end stages parallel
         }//end all stage    
-          
+
     }//end main stages
 
 }//end pipeline  
