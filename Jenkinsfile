@@ -1,4 +1,5 @@
  
+def  { exec } = require("child_process") 
 
 pipeline{
 
@@ -10,8 +11,8 @@ pipeline{
                     //echo 'hello'
                    script{
 
-                             
-                            const  { exec } = require("child_process") 
+                            
+                            //const  { exec } = require("child_process") 
                             exec("node Server.js", (error, stdout, stderr) => {
                                 if (error) {
                                     console.log(`error: ${error.message}`);
