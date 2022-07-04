@@ -10,13 +10,13 @@ pipeline{
              parallel{
                  stage("one")
                  {
-                        step{
+                        steps{
                             echo "hello 1"
                         }
                  }// end stage  one
                  stage("two")
                  {
-                        step{
+                        steps{
                             echo "hello 2"
                         }
                  }// end stage  two
