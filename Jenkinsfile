@@ -13,7 +13,7 @@ pipeline{
                             steps{
                                
                                 echo "hello 1"
-                                bat 'node Server.js'
+                                //bat 'node Server.js'
                                  
                             }
                         }
