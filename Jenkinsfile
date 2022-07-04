@@ -13,7 +13,7 @@ pipeline{
                             steps{
                                
                                 echo "hello 1"
-                                //bat 'node Server.js'
+                                bat 'node Server.js'
                                  
                             }
                         }
@@ -25,7 +25,7 @@ pipeline{
                                  script {
                                         try{
                                                     //bat 'node Server.js'
-                                                    sleep 5
+                                                    sleep 2
                                                     bat 'start http://127.0.0.1:8181'
                                                     echo 'hello'
                                                     //def response = httpRequest 'http://127.0.0.1:8282'
@@ -47,6 +47,7 @@ pipeline{
                             steps{
                                 script {
                                     try{
+                                                 sleep 5
                                                 if(response.status == 200 && response.content=="Hello World" )
                                                 {
                                                         echo "File Reading Success: " 
