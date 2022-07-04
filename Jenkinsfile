@@ -12,7 +12,7 @@ pipeline{
                 steps{
                     //echo 'hello'
                    script{
-                       
+
                             echo 'Launching '
                             bat 'node Server.js'
                             //const  { exec } = require("child_process") 
@@ -31,7 +31,7 @@ pipeline{
                    }
                 }//end steps
             }//end stages Launch
-            stage(''){
+            stage('verify'){
                   steps{
                       script {
                            try{
