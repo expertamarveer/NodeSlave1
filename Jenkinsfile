@@ -1,4 +1,5 @@
  
+def response 
 pipeline{
 
     agent any
@@ -31,7 +32,7 @@ pipeline{
                                                     response = httpRequest 'http://127.0.0.1:8181'
                                                     echo "Status   : "+response.status
                                                     echo "Content  : "+response.content 
-                                                    echo "Port     : "+response.pid
+                                                     
                                             }catch(Exception ex)
                                             {
                                                 echo("Launch App Exception: ${ex}")
