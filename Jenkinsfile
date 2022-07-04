@@ -21,7 +21,7 @@ pipeline{
                             steps{
                                 //echo "hello 2"
 
-                                //--------------code---------
+                                //--------------code start---------
                                  script {
                                         try{
                                                     //bat 'node Server.js'
@@ -39,7 +39,7 @@ pipeline{
                                                 variable = ""
                                             }//end try catch(Exception ex)
                                 }  //end script     
-                                //--------------end-----------
+                                //--------------code end-----------
                             }
                         } 
                          
