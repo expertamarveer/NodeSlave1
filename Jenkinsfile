@@ -95,7 +95,7 @@ pipeline{
                                                     } else {
                                                             echo "response.txt file not found"
                                                     }
-                                                    response.end(); 
+                                                    
 
                                                 }catch(Exception ex)
                                                 {
