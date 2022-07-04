@@ -42,7 +42,34 @@ pipeline{
                                 //--------------code cend-----------
                             }
                         } 
-                         
+
+                        stage('verifyApp'){
+                            steps{
+                                script {
+                                    try{
+                                                if(response.status == 200 && response.content=="Hello World" )
+                                                {
+                                                        echo "File Reading Success: " 
+                                                        //node() {
+                                                                writeFile file: 'response.txt', text: 'string equal hello world'
+                                                        // }    
+                                                }
+                                                else
+                                                {
+                                                        echo "File Reading Fail: "   
+                                                        //node() {
+                                                                writeFile file: 'response.txt', text: 'issue in app'
+                                                        // }      
+                                                }
+                                        }catch(Exception ex)
+                                        {
+                                            writeFile file: 'response.txt', text: 'issue in app'
+                                            echo("Reading Exception: ${ex}")
+                                            variable = ""
+                                        }//end try catch(Exception ex)
+                                }  //end script                
+                            } //end step
+                        } //end stage verifyApp
 
                 }// end parallel
             }// end all stage
