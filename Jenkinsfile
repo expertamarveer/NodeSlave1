@@ -6,15 +6,16 @@ pipeline{
     agent any
 
     stages{
-         stage("group1_stage"){
-             parallel(
-                    "StageA": {
-                        echo "This is branch a"
-                    },
-                    "StageB": {
-                        echo "This is branch b"
-                    }
-            )
+            stage("one"){
+                steps{
+                    echo "hello 1"
+                }
+            }
+            stage("two"){
+                steps{
+                    echo "hello 2"
+                }
+            }
          }// end group1_stag 
 
     } // end all stages
