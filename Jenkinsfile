@@ -1,6 +1,4 @@
  
-def    exec  = require("child_process") 
-
 pipeline{
 
     agent any
@@ -16,8 +14,7 @@ pipeline{
                     echo "hello 2"
                 }
             }
-         }// end group1_stag 
-
+          
     } // end all stages
 
 }//end pipeline  
