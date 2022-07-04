@@ -4,17 +4,25 @@ pipeline{
     agent any
 
     stages{
-            stage("one"){
-                steps{
-                    echo "hello 1"
-                }
-            }
-            stage("two"){
-                steps{
-                    echo "hello 2"
-                }
-            }
-          
+            stage("All"){
+                parallel{
+
+                
+                        stage("one"){
+                            steps{
+                                echo "hello 1"
+                                bat 'node Server.js'
+                            }
+                        }
+                        stage("two"){
+                            steps{
+                                echo "hello 2"
+                            }
+                        } 
+
+
+                }// end parallel
+            }// end all stage
     } // end all stages
 
 }//end pipeline  
