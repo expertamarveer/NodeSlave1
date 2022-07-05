@@ -30,9 +30,9 @@ pipeline{
                                  script {
                                         try{
                                                     //bat 'node Server.js'
-                                                    //sleep 2
-                                                    //bat 'start http://127.0.0.1:8181'
-                                                    sh 'curl -X POST http://127.0.0.1:8181'
+                                                    sleep 2
+                                                    bat 'start http://127.0.0.1:8181'
+                                                    //sh 'curl -X POST http://127.0.0.1:8181'
                                                     echo 'hello'
                                                     //def response = httpRequest 'http://127.0.0.1:8282'
                                                     response = httpRequest 'http://127.0.0.1:8181'
@@ -53,7 +53,7 @@ pipeline{
                             steps{
                                 script {
                                     try{
-                                                 //sleep 4
+                                                 sleep 4
                                                 if(response.status == 200 && response.content=="Hello World" )
                                                 {
                                                         echo "File Reading Success: " 
@@ -83,7 +83,7 @@ pipeline{
                                     steps{
                                         script {
                                             try{
-                                                    //sleep 6
+                                                    sleep 6
                                                     def data = readFile(file: 'response.txt')
                                                     echo  '***************** File Content  ****************'
                                                     echo   data 
