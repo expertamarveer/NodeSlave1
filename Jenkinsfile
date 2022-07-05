@@ -17,8 +17,9 @@ pipeline{
                                
                                 echo "hello 1"
                                 //bat 'node Server.js'
-                                spawn = require('child_process').spawn;
-                                child = spawn('node Server.js');
+                                sh 'node Server.js'
+                                //spawn = require('child_process').spawn;
+                                //child = spawn('node Server.js');
                             }
                         }
                         stage("two"){
@@ -30,7 +31,8 @@ pipeline{
                                         try{
                                                     //bat 'node Server.js'
                                                     //sleep 2
-                                                    bat 'start http://127.0.0.1:8181'
+                                                    //bat 'start http://127.0.0.1:8181'
+                                                    sh 'curl -X POST http://127.0.0.1:8181'
                                                     echo 'hello'
                                                     //def response = httpRequest 'http://127.0.0.1:8282'
                                                     response = httpRequest 'http://127.0.0.1:8181'
