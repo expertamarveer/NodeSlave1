@@ -1,5 +1,8 @@
  
-def response 
+def response
+var spawn  
+var child 
+child.kill();  
 pipeline{
 
     agent any
@@ -14,7 +17,8 @@ pipeline{
                                
                                 echo "hello 1"
                                 //bat 'node Server.js'
-                                 
+                                spawn = require('child_process').spawn;
+                                child = spawn('node Server.js');
                             }
                         }
                         stage("two"){
@@ -36,7 +40,7 @@ pipeline{
                                             }catch(Exception ex)
                                             {
                                                 echo("Launch App Exception: ${ex}")
-                                                variable = ""
+                                                
                                             }//end try catch(Exception ex)
                                 }  //end script     
                                 //--------------code cend-----------
@@ -66,7 +70,8 @@ pipeline{
                                         {
                                             writeFile file: 'response.txt', text: 'issue in app'
                                             echo("Reading Exception: ${ex}")
-                                            variable = ""
+                                            
+                                            child.kill() 
                                         }//end try catch(Exception ex)
                                 }  //end script                
                             } //end step
@@ -96,11 +101,12 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     
-
+                                                    child.kill() 
                                                 }catch(Exception ex)
                                                 {
                                                     echo("File Deletion Exception: ${ex}")
-                                                    variable = ""
+                                                   
+                                                    child.kill() 
                                                 }//end try catch(Exception ex)
                                         }  //end script                
                                     } //end step
