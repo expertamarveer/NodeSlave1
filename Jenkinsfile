@@ -1,8 +1,8 @@
  
 def response
-var spawn  
-var child 
-child.kill();  
+def spawn  
+def child 
+ 
 pipeline{
 
     agent any
@@ -40,7 +40,7 @@ pipeline{
                                             }catch(Exception ex)
                                             {
                                                 echo("Launch App Exception: ${ex}")
-                                                
+                                                child.kill(); 
                                             }//end try catch(Exception ex)
                                 }  //end script     
                                 //--------------code cend-----------
