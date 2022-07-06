@@ -107,9 +107,9 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     //bat 'Taskkill /IM node.exe /F'
-                                                    //bat 'npx kill-port 8181'
-                                                    def app = express();
-                                                    app.stop(HOST,PORT);
+                                                    bat 'npx kill-port 8181'
+                                                    //def app = express();
+                                                    //app.stop(HOST,PORT);
                                                     //app.close(HOST,PORT);
                                                     // server.close((err) => {
                                                     // console.log('server closed')
