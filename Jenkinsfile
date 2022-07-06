@@ -18,13 +18,16 @@ pipeline{
                 
                         stage("Luanch"){
                             steps{
-                               
+                                try{
                                 echo "hello 1"
                                 //bat 'node Server.js'
                                 sh 'node Server.js'
                                
-                                //spawn = require 'child_process' ;
-                                //child = spawn('node Server.js');
+                                }catch(Exception ex)
+                                {
+                                    echo("Launch App Exception: ${ex}")
+                                        
+                                }//end try catch(Exception ex)
                             }
                         }
                         stage("Invoke"){
@@ -57,7 +60,7 @@ pipeline{
 
                                             }catch(Exception ex)
                                             {
-                                                echo("Launch App Exception: ${ex}")
+                                                echo("Invoke App Exception: ${ex}")
                                                  
                                             }//end try catch(Exception ex)
                                 }  //end script     
@@ -89,7 +92,7 @@ pipeline{
                                         }catch(Exception ex)
                                         {
                                             writeFile file: 'response.txt', text: 'issue in app'
-                                            echo("Reading Exception: ${ex}")  
+                                            echo("verify Exception: ${ex}")  
                                         }//end try catch(Exception ex)
                                 }  //end script                
                             } //end step
@@ -133,7 +136,7 @@ pipeline{
 
                                                 }catch(Exception ex)
                                                 {
-                                                    echo("File Deletion Exception: ${ex}")
+                                                    echo("readAndClose Deletion Exception: ${ex}")
                                                 }//end try catch(Exception ex)
                                         }  //end script                
                                     } //end step
