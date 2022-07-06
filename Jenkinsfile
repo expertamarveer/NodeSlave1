@@ -95,7 +95,7 @@ pipeline{
                             } //end step
                         } //end stage verifyApp
 
-                        stage('readAndDeleteApp'){
+                        stage('readAndClose'){
                                     steps{
                                         script {
                                             try{
@@ -119,7 +119,7 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     //bat 'Taskkill /IM node.exe /F'
-                                                    bat 'npx kill-port 8181'
+                                                    //bat 'npx kill-port 8181'
                                                     
                                                     //def app = express();
                                                     //app.stop(HOST,PORT);
