@@ -35,7 +35,7 @@ pipeline{
                                         try{
                                                     //bat 'node Server.js'
                                                     sleep 2
-                                                    bat 'start chrome http://127.0.0.1:8181'
+                                                    //bat 'start chrome http://127.0.0.1:8181'
                                                     //sh 'curl -X POST http://127.0.0.1:8181'
                                                     echo 'hello'
                                                     //def response = httpRequest 'http://127.0.0.1:8282'
