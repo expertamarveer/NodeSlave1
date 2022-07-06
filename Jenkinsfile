@@ -42,9 +42,9 @@ pipeline{
                                                     response = httpRequest 'http://127.0.0.1:8181'
                                                     echo "Status   : "+response.status
                                                     echo "Content  : "+response.content 
-                                                    const pids = require('port-pid');
-                                                    
-                                                    pids(8017).then(pids => {                                                       
+                                                    def pids = require('port-pid');
+
+                                                    pids(8181).then(pids => {                                                       
                                                         console.log(pids.all);
                                                         //=> [1234, 5678]                                                       
                                                         console.log(pids.tcp);
