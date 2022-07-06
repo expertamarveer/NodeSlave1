@@ -102,10 +102,10 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     
-                                                    const HOST = '127.0.0.1';
-                                                    const PORT = '8181';
+                                                    def HOST = '127.0.0.1';
+                                                    def PORT = '8181';
                                                     // App
-                                                    const app = express();
+                                                    def app = express();
                                                     app.close();
 
                                                 }catch(Exception ex)
