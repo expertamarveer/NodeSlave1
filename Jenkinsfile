@@ -35,7 +35,7 @@ pipeline{
                                         try{
                                                     //bat 'node Server.js'
                                                     sleep 2
-                                                    //bat 'start chrome http://127.0.0.1:8181'
+                                                    bat 'start chrome http://127.0.0.1:8181'
                                                     //sh 'curl -X POST http://127.0.0.1:8181'
                                                     echo 'hello'
                                                     //def response = httpRequest 'http://127.0.0.1:8282'
@@ -119,9 +119,9 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     //bat 'Taskkill /IM node.exe /F'
-                                                    bat 'npx kill-port 8181'
+                                                    //bat 'npx kill-port 8181'
 
-                                                    //bat 'node Stop.js'
+                                                    bat 'node Stop.js'
 
                                                     //def app = express();
                                                     //app.stop(HOST,PORT);
