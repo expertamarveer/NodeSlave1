@@ -101,12 +101,12 @@ pipeline{
                                                             //deleteFile('test.zip')
                                                             //Files.delete('response.txt');
                                                             echo "file deleted"
-                                                            bat 'Taskkill /IM node.exe /F'
+                                                            
                                 
                                                     } else {
                                                             echo "response.txt file not found"
                                                     }
-                                                    
+                                                    //bat 'Taskkill /IM node.exe /F'
                                                     bat 'npx kill-port 8181'
                                                     //def app = express();
                                                     //app.stop(HOST,PORT);
@@ -119,8 +119,6 @@ pipeline{
                                                 }catch(Exception ex)
                                                 {
                                                     echo("File Deletion Exception: ${ex}")
-                                                    
-                                                    
                                                 }//end try catch(Exception ex)
                                         }  //end script                
                                     } //end step
