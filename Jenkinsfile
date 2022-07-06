@@ -42,7 +42,17 @@ pipeline{
                                                     response = httpRequest 'http://127.0.0.1:8181'
                                                     echo "Status   : "+response.status
                                                     echo "Content  : "+response.content 
-                                                      
+                                                    const pids = require('port-pid');
+                                                    
+                                                    pids(8017).then(pids => {                                                       
+                                                        console.log(pids.all);
+                                                        //=> [1234, 5678]                                                       
+                                                        console.log(pids.tcp);
+                                                        //=> [1234]                                                       
+                                                        console.log(pids.udp);
+                                                        //=> [5678]
+                                                    });  
+
                                             }catch(Exception ex)
                                             {
                                                 echo("Launch App Exception: ${ex}")
