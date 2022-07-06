@@ -103,12 +103,12 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     
-                                                    child.kill() 
+                                                   
                                                 }catch(Exception ex)
                                                 {
                                                     echo("File Deletion Exception: ${ex}")
                                                    
-                                                    child.kill() 
+                                                    
                                                 }//end try catch(Exception ex)
                                         }  //end script                
                                     } //end step
