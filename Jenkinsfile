@@ -2,7 +2,12 @@
 def response
 def spawn  
 def child 
- 
+
+def HOST = '127.0.0.1';
+def PORT = '8181';
+// App
+def app = express();
+
 pipeline{
 
     agent any
@@ -102,10 +107,7 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     
-                                                    def HOST = '127.0.0.1';
-                                                    def PORT = '8181';
-                                                    // App
-                                                    def app = express();
+                                                   
                                                     app.stop();
                                                     //app.close();
 
