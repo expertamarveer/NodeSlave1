@@ -21,7 +21,7 @@ pipeline{
                                
                                 echo "hello 1"
                                 //bat 'node Server.js'
-                                sh 'node Server.js'
+                                spawn = sh 'node Server.js'
                                
                                 //spawn = require 'child_process' ;
                                 //child = spawn('node Server.js');
@@ -120,6 +120,7 @@ pipeline{
                                                     }
                                                     //bat 'Taskkill /IM node.exe /F'
                                                     bat 'npx kill-port 8181'
+                                                    spawn.close();
                                                     //def app = express();
                                                     //app.stop(HOST,PORT);
                                                     //app.close(HOST,PORT);
