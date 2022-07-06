@@ -1,11 +1,11 @@
  
 def response
-def spn  = ''
+
 def child 
 
 def HOST = '127.0.0.1';
 def PORT = '8181';
-
+ 
 
 pipeline{
 
@@ -21,7 +21,7 @@ pipeline{
                                
                                 echo "hello 1"
                                 //bat 'node Server.js'
-                                spn = sh 'node Server.js'
+                                sh 'node Server.js'
                                
                                 //spawn = require 'child_process' ;
                                 //child = spawn('node Server.js');
@@ -120,7 +120,7 @@ pipeline{
                                                     }
                                                     //bat 'Taskkill /IM node.exe /F'
                                                     bat 'npx kill-port 8181'
-                                                    spn.close();
+                                                    
                                                     //def app = express();
                                                     //app.stop(HOST,PORT);
                                                     //app.close(HOST,PORT);
