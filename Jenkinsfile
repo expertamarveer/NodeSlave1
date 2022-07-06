@@ -108,8 +108,12 @@ pipeline{
                                                     }
                                                     
                                                     def app = express();
-                                                    app.stop(HOST,PORT);
+                                                    //app.stop(HOST,PORT);
                                                     //app.close();
+                                                    server.close((err) => {
+                                                    console.log('server closed')
+                                                    process.exit(err ? 1 : 0)
+                                                    })
 
                                                 }catch(Exception ex)
                                                 {
