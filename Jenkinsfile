@@ -25,7 +25,6 @@ pipeline{
                         stage("Invoke"){
                             steps{
                                 //echo "hello 2"
-
                                 //--------------code start---------
                                  script {
                                         try{
@@ -38,11 +37,11 @@ pipeline{
                                                     response = httpRequest 'http://127.0.0.1:8181'
                                                     echo "Status   : "+response.status
                                                     echo "Content  : "+response.content 
-                                                     
+                                                      
                                             }catch(Exception ex)
                                             {
                                                 echo("Launch App Exception: ${ex}")
-                                                child.kill(); 
+                                                 
                                             }//end try catch(Exception ex)
                                 }  //end script     
                                 //--------------code cend-----------
@@ -56,24 +55,24 @@ pipeline{
                                                  sleep 4
                                                 if(response.status == 200 && response.content=="Hello World" )
                                                 {
-                                                        echo "File Reading Success: " 
+                                                        echo "File Reading Success : " 
                                                         //node() {
-                                                                writeFile file: 'response.txt', text: 'string equal hello world'
+                                                        writeFile file: 'response.txt', text: 'string equal hello world'
                                                         // }    
                                                 }
                                                 else
                                                 {
-                                                        echo "File Reading Fail: "   
+                                                        echo "File Reading Fail : "   
                                                         //node() {
-                                                                writeFile file: 'response.txt', text: 'issue in app'
+                                                        writeFile file: 'response.txt', text: 'issue in app'
                                                         // }      
                                                 }
+                                               
+
                                         }catch(Exception ex)
                                         {
                                             writeFile file: 'response.txt', text: 'issue in app'
-                                            echo("Reading Exception: ${ex}")
-                                            
-                                            child.kill() 
+                                            echo("Reading Exception: ${ex}")  
                                         }//end try catch(Exception ex)
                                 }  //end script                
                             } //end step
@@ -97,17 +96,22 @@ pipeline{
                                                             //deleteFile('test.zip')
                                                             //Files.delete('response.txt');
                                                             echo "file deleted"
-                                                            
+                                                            bat 'Taskkill /IM node.exe /F'
                                 
                                                     } else {
                                                             echo "response.txt file not found"
                                                     }
                                                     
-                                                   
+                                                    const HOST = '127.0.0.1';
+                                                    const PORT = '8181';
+                                                    // App
+                                                    const app = express();
+                                                    app.close();
+
                                                 }catch(Exception ex)
                                                 {
                                                     echo("File Deletion Exception: ${ex}")
-                                                   
+                                                    
                                                     
                                                 }//end try catch(Exception ex)
                                         }  //end script                
