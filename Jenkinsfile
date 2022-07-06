@@ -106,7 +106,8 @@ pipeline{
                                                     def PORT = '8181';
                                                     // App
                                                     def app = express();
-                                                    app.close();
+                                                    app.stop();
+                                                    //app.close();
 
                                                 }catch(Exception ex)
                                                 {
