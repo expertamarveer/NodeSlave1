@@ -5,8 +5,7 @@ def child
 
 def HOST = '127.0.0.1';
 def PORT = '8181';
-// App
-def app  
+
 
 pipeline{
 
@@ -23,7 +22,7 @@ pipeline{
                                 echo "hello 1"
                                 //bat 'node Server.js'
                                 sh 'node Server.js'
-                                app = express();
+                               
                                 //spawn = require 'child_process' ;
                                 //child = spawn('node Server.js');
                             }
@@ -108,7 +107,7 @@ pipeline{
                                                             echo "response.txt file not found"
                                                     }
                                                     
-                                                   
+                                                    def app = express();
                                                     app.stop();
                                                     //app.close();
 
