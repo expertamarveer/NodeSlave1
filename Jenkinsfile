@@ -18,16 +18,18 @@ pipeline{
                 
                         stage("Luanch"){
                             steps{
-                                try{
-                                echo "hello 1"
-                                //bat 'node Server.js'
-                                sh 'node Server.js'
-                               
-                                }catch(Exception ex)
-                                {
-                                    echo("Launch App Exception: ${ex}")
+                                 script {
+                                            try{
+                                            echo "hello 1"
+                                            //bat 'node Server.js'
+                                            sh 'node Server.js'
                                         
-                                }//end try catch(Exception ex)
+                                            }catch(Exception ex)
+                                            {
+                                                echo("Launch App Exception: ${ex}")
+                                                    
+                                            }//end try catch(Exception ex)
+                                 }
                             }
                         }
                         stage("Invoke"){
