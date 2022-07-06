@@ -43,15 +43,15 @@ pipeline{
                                                     echo "Status   : "+response.status
                                                     echo "Content  : "+response.content 
                                                     def pids = require('port-pid');
-
-                                                    pids(8181).then(pids => {                                                       
-                                                        console.log(pids.all);
-                                                        //=> [1234, 5678]                                                       
-                                                        console.log(pids.tcp);
-                                                        //=> [1234]                                                       
-                                                        console.log(pids.udp);
-                                                        //=> [5678]
-                                                    });  
+                                                    echo "pids(8181)  : "+pids(8181)  
+                                                    // pids(8181).then(pids => {                                                       
+                                                    //     console.log(pids.all);
+                                                    //     //=> [1234, 5678]                                                       
+                                                    //     console.log(pids.tcp);
+                                                    //     //=> [1234]                                                       
+                                                    //     console.log(pids.udp);
+                                                    //     //=> [5678]
+                                                    // });  
 
                                             }catch(Exception ex)
                                             {
